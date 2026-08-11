@@ -1,8 +1,19 @@
 const AnnouncementBar = () => {
+  const offerText =
+    "LAUNCH OFFER — For our first 3 bookings, enjoy every service at an exclusive introductory price.";
+
   return (
     <div className="announcement">
-      <span>Book Your First At-Home Beauty Experience</span>
-      <span className="announcement-arrow">→</span>
+      <div className="announcement-track">
+        <span>{offerText}</span>
+        <span className="announcement-dot">✦</span>
+        <span>{offerText}</span>
+        <span className="announcement-dot">✦</span>
+        <span>{offerText}</span>
+        <span className="announcement-dot">✦</span>
+        <span>{offerText}</span>
+        <span className="announcement-dot">✦</span>
+      </div>
     </div>
   );
 };

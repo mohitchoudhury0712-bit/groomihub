@@ -4,93 +4,105 @@ type Gender = "men" | "women" | null;
 
 type Service = {
   name: string;
+  originalPrice: string;
   price: string;
   category: string;
 };
 
-const serviceData = {
+type ServiceItem = [string, string, string];
+
+const serviceData: Record<
+  "men" | "women",
+  Record<string, ServiceItem[]>
+> = {
   men: {
     Hair: [
-      ["Hair Cut", "₹299"],
-      ["Hair Styling", "₹399"],
-      ["Hair Wash", "₹199"],
-      ["Hair Colour", "₹999"],
-      ["Global Hair Colour", "₹1,499"],
-      ["Root Touch-up", "₹699"],
-      ["Straightening", "₹1,499"],
-      ["Smoothening", "₹1,799"],
-      ["Hair Spa", "₹699"],
+      ["Hair Cut", "₹249", "₹189"],
+      ["Hair Colour (Garnier/Matrix)", "₹349", "₹249"],
+      ["Hair Colour (L'Oréal)", "₹599", "₹499"],
+      ["Hair Straightening", "₹1,499", "₹999"],
+      ["Hair Spa", "₹849", "₹649"],
     ],
+
     "Face & Skin": [
-      ["De-Tan", "₹399"],
-      ["Cleanup", "₹499"],
-      ["Bleach", "₹399"],
-      ["Scrub", "₹299"],
-      ["Basic Facial", "₹599"],
-      ["Premium Facial", "₹899"],
+      ["De-Tan", "₹399", "₹299"],
+      ["Scrub", "₹349", "₹249"],
+      ["Bleach", "₹399", "₹299"],
+      ["Facial", "₹699", "₹599"],
     ],
+
     Beard: [
-      ["Beard Trim", "₹199"],
-      ["Beard Styling", "₹299"],
-      ["Beard Colour", "₹399"],
-      ["Beard Spa", "₹499"],
+      ["Beard Trim", "₹149", "₹99"],
+      ["Clean Shave", "₹149", "₹99"],
+      ["Beard Styling", "₹199", "₹129"],
+      ["Beard Colour", "₹149", "₹89"],
     ],
-    "Head Massage": [
-      ["Head Massage", "₹299"],
-      ["Premium Head Massage", "₹499"],
+
+    Grooming: [
+      ["Eyebrow Threading", "₹59", "₹29"],
+    ],
+
+    "Hands & Feet": [
+      ["Manicure", "₹799", "₹599"],
+      ["Pedicure", "₹799", "₹599"],
     ],
   },
 
   women: {
     Hair: [
-      ["Hair Cut", "₹399"],
-      ["Hair Styling", "₹499"],
-      ["Hair Wash", "₹299"],
-      ["Blow Dry", "₹399"],
-      ["Hair Colour", "₹1,199"],
-      ["Global Hair Colour", "₹1,799"],
-      ["Root Touch-up", "₹799"],
-      ["Highlights", "₹1,499"],
-      ["Straightening", "₹1,999"],
-      ["Smoothening", "₹2,499"],
-      ["Curling", "₹699"],
-      ["Hair Spa", "₹799"],
+      ["Hair Cut", "₹399", "₹399"],
+      ["Hair Styling", "₹499", "₹499"],
+      ["Hair Wash", "₹299", "₹299"],
+      ["Blow Dry", "₹399", "₹399"],
+      ["Hair Colour", "₹1,199", "₹1,199"],
+      ["Global Hair Colour", "₹1,799", "₹1,799"],
+      ["Root Touch-up", "₹799", "₹799"],
+      ["Highlights", "₹1,499", "₹1,499"],
+      ["Straightening", "₹1,999", "₹1,999"],
+      ["Smoothening", "₹2,499", "₹2,499"],
+      ["Curling", "₹699", "₹699"],
+      ["Hair Spa", "₹799", "₹799"],
     ],
+
     "Face & Skin": [
-      ["De-Tan", "₹499"],
-      ["Scrub", "₹299"],
-      ["Bleach", "₹499"],
-      ["Cleanup", "₹599"],
-      ["Basic Facial", "₹799"],
-      ["VLCC Facial", "₹999"],
-      ["Lakmé Facial", "₹1,199"],
-      ["Premium Facial", "₹1,499"],
+      ["De-Tan", "₹499", "₹499"],
+      ["Scrub", "₹299", "₹299"],
+      ["Bleach", "₹499", "₹499"],
+      ["Cleanup", "₹599", "₹599"],
+      ["Basic Facial", "₹799", "₹799"],
+      ["VLCC Facial", "₹999", "₹999"],
+      ["Lakmé Facial", "₹1,199", "₹1,199"],
+      ["Premium Facial", "₹1,499", "₹1,499"],
     ],
+
     Makeup: [
-      ["Basic Makeup", "₹999"],
-      ["Party Makeup", "₹1,499"],
-      ["Premium Makeup", "₹2,499"],
-      ["Engagement Makeup", "₹3,999"],
-      ["Bridal Makeup", "₹7,999"],
+      ["Basic Makeup", "₹999", "₹999"],
+      ["Party Makeup", "₹1,499", "₹1,499"],
+      ["Premium Makeup", "₹2,499", "₹2,499"],
+      ["Engagement Makeup", "₹3,999", "₹3,999"],
+      ["Bridal Makeup", "₹7,999", "₹7,999"],
     ],
+
     Nails: [
-      ["Manicure", "₹499"],
-      ["Pedicure", "₹599"],
-      ["Manicure + Pedicure", "₹999"],
-      ["Gel Polish", "₹699"],
-      ["Nail Extensions", "₹1,499"],
+      ["Manicure", "₹499", "₹499"],
+      ["Pedicure", "₹599", "₹599"],
+      ["Manicure + Pedicure", "₹999", "₹999"],
+      ["Gel Polish", "₹699", "₹699"],
+      ["Nail Extensions", "₹1,499", "₹1,499"],
     ],
+
     Waxing: [
-      ["Full Arms Wax", "₹399"],
-      ["Half Legs Wax", "₹399"],
-      ["Full Legs Wax", "₹599"],
-      ["Full Body Wax", "₹1,499"],
-      ["Underarms Wax", "₹199"],
+      ["Full Arms Wax", "₹399", "₹399"],
+      ["Half Legs Wax", "₹399", "₹399"],
+      ["Full Legs Wax", "₹599", "₹599"],
+      ["Full Body Wax", "₹1,499", "₹1,499"],
+      ["Underarms Wax", "₹199", "₹199"],
     ],
+
     Threading: [
-      ["Eyebrow", "₹99"],
-      ["Upper Lip", "₹79"],
-      ["Full Face Threading", "₹249"],
+      ["Eyebrow", "₹99", "₹99"],
+      ["Upper Lip", "₹79", "₹79"],
+      ["Full Face Threading", "₹249", "₹249"],
     ],
   },
 };
@@ -99,21 +111,21 @@ const categoryIcons: Record<string, string> = {
   Hair: "✂",
   "Face & Skin": "◌",
   Beard: "⌁",
-  "Head Massage": "○",
+  Grooming: "⌁",
+  "Hands & Feet": "◇",
+  Head: "○",
   Makeup: "✦",
   Nails: "◇",
   Waxing: "—",
   Threading: "⌁",
 };
 
-/* DIRECT IMAGE URLS */
 const genderImages = {
   men: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1400&q=90",
   women:
     "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=90",
 };
 
-/* GROOMIHUB WHATSAPP NUMBER */
 const WHATSAPP_NUMBER = "919658852370";
 
 function BookingPage() {
@@ -131,13 +143,13 @@ function BookingPage() {
 
   const [confirmed, setConfirmed] = useState(false);
 
-  const categories = gender ? Object.keys(serviceData[gender]) : [];
+  const categories = gender
+    ? Object.keys(serviceData[gender])
+    : [];
 
   const services =
     gender && category
-      ? serviceData[gender][
-          category as keyof (typeof serviceData)[typeof gender]
-        ]
+      ? serviceData[gender][category] || []
       : [];
 
   /* ---------------- GENDER ---------------- */
@@ -162,7 +174,11 @@ function BookingPage() {
 
   /* ---------------- SERVICE ---------------- */
 
-  const toggleService = (serviceName: string, price: string) => {
+  const toggleService = (
+    serviceName: string,
+    originalPrice: string,
+    price: string
+  ) => {
     if (!category) return;
 
     const exists = selectedServices.some(
@@ -186,6 +202,7 @@ function BookingPage() {
         ...prev,
         {
           name: serviceName,
+          originalPrice,
           price,
           category,
         },
@@ -266,7 +283,7 @@ function BookingPage() {
     const serviceText = selectedServices
       .map(
         (service) =>
-          `• ${service.name} (${service.category}) - ${service.price}`
+          `• ${service.name} (${service.category}) - ${service.originalPrice} → ${service.price}`
       )
       .join("\n");
 
@@ -293,7 +310,9 @@ I want to book a home salon service.
 *SERVICES*
 ${serviceText}
 
-💰 Total: ₹${totalPrice.toLocaleString("en-IN")}
+💰 Total Offer Price: ₹${totalPrice.toLocaleString(
+      "en-IN"
+    )}
 
 📅 Date: ${formattedDate}
 ⏰ Time: ${formattedTime}
@@ -306,7 +325,6 @@ Please confirm my booking.
 Thank you,
 GroomiHub Customer`;
 
-    /* CORRECT WHATSAPP URL */
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       message
     )}`;
@@ -321,9 +339,7 @@ GroomiHub Customer`;
   if (confirmed) {
     return (
       <div className="booking-page">
-
         <div className="booking-top">
-
           <a href="/" className="booking-logo">
             Groomi<span>Hub</span>
           </a>
@@ -335,14 +351,10 @@ GroomiHub Customer`;
           <a href="/" className="booking-close">
             Close ×
           </a>
-
         </div>
 
         <main className="booking-success">
-
-          <div className="success-icon">
-            ✓
-          </div>
+          <div className="success-icon">✓</div>
 
           <p className="booking-eyebrow">
             <span></span>
@@ -362,7 +374,6 @@ GroomiHub Customer`;
           </p>
 
           <div className="success-summary">
-
             <div>
               <span>SERVICES</span>
 
@@ -383,7 +394,6 @@ GroomiHub Customer`;
 
             <div>
               <span>DATE</span>
-
               <strong>
                 {formatDate(date)}
               </strong>
@@ -391,7 +401,6 @@ GroomiHub Customer`;
 
             <div>
               <span>TIME</span>
-
               <strong>
                 {formatTime(time)}
               </strong>
@@ -399,7 +408,6 @@ GroomiHub Customer`;
 
             <div>
               <span>TOTAL</span>
-
               <strong>
                 ₹{totalPrice.toLocaleString("en-IN")}
               </strong>
@@ -407,12 +415,8 @@ GroomiHub Customer`;
 
             <div>
               <span>NAME</span>
-
-              <strong>
-                {name}
-              </strong>
+              <strong>{name}</strong>
             </div>
-
           </div>
 
           <a
@@ -422,7 +426,6 @@ GroomiHub Customer`;
             Back to GroomiHub
             <span>↗</span>
           </a>
-
         </main>
       </div>
     );
@@ -436,7 +439,6 @@ GroomiHub Customer`;
       {/* TOP BAR */}
 
       <div className="booking-top">
-
         <a href="/" className="booking-logo">
           Groomi<span>Hub</span>
         </a>
@@ -448,13 +450,11 @@ GroomiHub Customer`;
         <a href="/" className="booking-close">
           Close ×
         </a>
-
       </div>
 
       {/* PROGRESS */}
 
       <div className="booking-progress">
-
         <div
           className={
             gender
@@ -498,7 +498,6 @@ GroomiHub Customer`;
           <span>04</span>
           Date & time
         </div>
-
       </div>
 
       <main className="booking-content">
@@ -506,7 +505,6 @@ GroomiHub Customer`;
         {/* HEADING */}
 
         <div className="booking-heading">
-
           <div className="booking-eyebrow">
             <span></span>
             BOOK YOUR APPOINTMENT
@@ -523,16 +521,20 @@ GroomiHub Customer`;
             perfect at-home experience for you.
           </p>
 
+          <div className="launch-offer-note">
+            <strong>LAUNCH OFFER</strong>
+            <span>
+              Special introductory prices available on
+              selected services.
+            </span>
+          </div>
         </div>
 
         {/* STEP 1 */}
 
         <section className="booking-step">
-
           <div className="step-heading">
-
             <div>
-
               <span className="step-label">
                 01
               </span>
@@ -540,7 +542,6 @@ GroomiHub Customer`;
               <h2>
                 Who is this service for?
               </h2>
-
             </div>
 
             {gender && (
@@ -550,7 +551,6 @@ GroomiHub Customer`;
                   : "WOMEN"}
               </span>
             )}
-
           </div>
 
           <div className="gender-grid">
@@ -568,7 +568,6 @@ GroomiHub Customer`;
                 chooseGender("men")
               }
             >
-
               <img
                 className="gender-image-real"
                 src={genderImages.men}
@@ -578,17 +577,13 @@ GroomiHub Customer`;
               <div className="gender-image-overlay"></div>
 
               <div className="gender-content">
-
                 <span>01</span>
 
-                <h3>
-                  Men
-                </h3>
+                <h3>Men</h3>
 
                 <p>
                   Hair, beard, skin & grooming
                 </p>
-
               </div>
 
               <div className="select-circle">
@@ -596,7 +591,6 @@ GroomiHub Customer`;
                   ? "✓"
                   : "↗"}
               </div>
-
             </button>
 
             {/* WOMEN */}
@@ -612,7 +606,6 @@ GroomiHub Customer`;
                 chooseGender("women")
               }
             >
-
               <img
                 className="gender-image-real"
                 src={genderImages.women}
@@ -622,17 +615,13 @@ GroomiHub Customer`;
               <div className="gender-image-overlay"></div>
 
               <div className="gender-content">
-
                 <span>02</span>
 
-                <h3>
-                  Women
-                </h3>
+                <h3>Women</h3>
 
                 <p>
                   Hair, skin, makeup, nails & more
                 </p>
-
               </div>
 
               <div className="select-circle">
@@ -640,22 +629,16 @@ GroomiHub Customer`;
                   ? "✓"
                   : "↗"}
               </div>
-
             </button>
-
           </div>
-
         </section>
 
         {/* STEP 2 */}
 
         {gender && (
           <section className="booking-step reveal">
-
             <div className="step-heading">
-
               <div>
-
                 <span className="step-label">
                   02
                 </span>
@@ -663,7 +646,6 @@ GroomiHub Customer`;
                 <h2>
                   What are you looking for?
                 </h2>
-
               </div>
 
               <span className="selected-label">
@@ -671,14 +653,11 @@ GroomiHub Customer`;
                   ? "MEN"
                   : "WOMEN"}
               </span>
-
             </div>
 
             <div className="category-grid">
-
               {categories.map(
                 (item, index) => (
-
                   <button
                     type="button"
                     key={item}
@@ -691,25 +670,19 @@ GroomiHub Customer`;
                       chooseCategory(item)
                     }
                   >
-
                     <div className="category-icon">
                       {categoryIcons[item] ||
                         "✦"}
                     </div>
 
                     <div>
-
                       <span className="category-number">
-                        {String(index + 1).padStart(
-                          2,
-                          "0"
-                        )}
+                        {String(
+                          index + 1
+                        ).padStart(2, "0")}
                       </span>
 
-                      <h3>
-                        {item}
-                      </h3>
-
+                      <h3>{item}</h3>
                     </div>
 
                     <span className="category-arrow">
@@ -717,14 +690,10 @@ GroomiHub Customer`;
                         ? "✓"
                         : "↗"}
                     </span>
-
                   </button>
-
                 )
               )}
-
             </div>
-
           </section>
         )}
 
@@ -732,11 +701,8 @@ GroomiHub Customer`;
 
         {category && (
           <section className="booking-step reveal">
-
             <div className="step-heading">
-
               <div>
-
                 <span className="step-label">
                   03
                 </span>
@@ -744,24 +710,26 @@ GroomiHub Customer`;
                 <h2>
                   Choose your services.
                 </h2>
-
               </div>
 
               <span className="selected-label">
                 {category}
               </span>
-
             </div>
 
             <p className="booking-helper">
-              Select as many services as you need.
+              {gender === "men"
+                ? "Launch offer prices are currently available on selected Men's services."
+                : "Select as many services as you need."}
             </p>
 
             <div className="service-selection-grid">
-
               {services.map(
-                ([serviceName, price]) => {
-
+                ([
+                  serviceName,
+                  originalPrice,
+                  price,
+                ]) => {
                   const isSelected =
                     selectedServices.some(
                       (service) =>
@@ -771,8 +739,10 @@ GroomiHub Customer`;
                           category
                     );
 
-                  return (
+                  const hasDiscount =
+                    originalPrice !== price;
 
+                  return (
                     <button
                       type="button"
                       key={serviceName}
@@ -784,45 +754,47 @@ GroomiHub Customer`;
                       onClick={() =>
                         toggleService(
                           serviceName,
+                          originalPrice,
                           price
                         )
                       }
                     >
-
                       <div>
-
                         <span className="service-mini-label">
-                          GROOMIHUB SERVICE
+                          {hasDiscount
+                            ? "LAUNCH OFFER"
+                            : "GROOMIHUB SERVICE"}
                         </span>
 
                         <h3>
                           {serviceName}
                         </h3>
-
                       </div>
 
                       <div className="service-price">
+                        <div className="service-price-values">
+                          {hasDiscount && (
+                            <del className="original-price">
+                              {originalPrice}
+                            </del>
+                          )}
 
-                        <strong>
-                          {price}
-                        </strong>
+                          <strong>
+                            {price}
+                          </strong>
+                        </div>
 
                         <span>
                           {isSelected
                             ? "✓"
                             : "+"}
                         </span>
-
                       </div>
-
                     </button>
-
                   );
                 }
               )}
-
             </div>
-
           </section>
         )}
 
@@ -830,11 +802,8 @@ GroomiHub Customer`;
 
         {selectedServices.length > 0 && (
           <section className="booking-step reveal">
-
             <div className="step-heading">
-
               <div>
-
                 <span className="step-label">
                   SELECTED
                 </span>
@@ -842,7 +811,6 @@ GroomiHub Customer`;
                 <h2>
                   Your services.
                 </h2>
-
               </div>
 
               <span className="selected-label">
@@ -851,21 +819,16 @@ GroomiHub Customer`;
                   ? "SERVICE"
                   : "SERVICES"}
               </span>
-
             </div>
 
             <div className="selected-services-list">
-
               {selectedServices.map(
                 (service, index) => (
-
                   <div
                     className="selected-service-card"
                     key={`${service.name}-${index}`}
                   >
-
                     <div className="selected-service-info">
-
                       <span>
                         {service.category}
                       </span>
@@ -873,14 +836,23 @@ GroomiHub Customer`;
                       <strong>
                         {service.name}
                       </strong>
-
                     </div>
 
                     <div className="selected-service-right">
+                      <div className="selected-price-values">
+                        {service.originalPrice !==
+                          service.price && (
+                          <del className="original-price">
+                            {
+                              service.originalPrice
+                            }
+                          </del>
+                        )}
 
-                      <strong>
-                        {service.price}
-                      </strong>
+                        <strong>
+                          {service.price}
+                        </strong>
+                      </div>
 
                       <button
                         type="button"
@@ -891,18 +863,13 @@ GroomiHub Customer`;
                       >
                         ×
                       </button>
-
                     </div>
-
                   </div>
-
                 )
               )}
 
               <div className="selected-services-total">
-
                 <div>
-
                   <span>
                     YOUR TOTAL
                   </span>
@@ -914,7 +881,6 @@ GroomiHub Customer`;
                       : "services"}{" "}
                     selected
                   </small>
-
                 </div>
 
                 <strong>
@@ -923,11 +889,8 @@ GroomiHub Customer`;
                     "en-IN"
                   )}
                 </strong>
-
               </div>
-
             </div>
-
           </section>
         )}
 
@@ -935,11 +898,8 @@ GroomiHub Customer`;
 
         {selectedServices.length > 0 && (
           <section className="booking-step reveal">
-
             <div className="step-heading">
-
               <div>
-
                 <span className="step-label">
                   04
                 </span>
@@ -947,19 +907,15 @@ GroomiHub Customer`;
                 <h2>
                   When should we come?
                 </h2>
-
               </div>
 
               <span className="selected-label">
                 SCHEDULE
               </span>
-
             </div>
 
             <div className="schedule-grid">
-
               <div className="booking-field">
-
                 <label htmlFor="booking-date">
                   SELECT DATE
                 </label>
@@ -977,11 +933,9 @@ GroomiHub Customer`;
                     setDate(e.target.value)
                   }
                 />
-
               </div>
 
               <div className="booking-field">
-
                 <label htmlFor="booking-time">
                   SELECT TIME
                 </label>
@@ -998,11 +952,8 @@ GroomiHub Customer`;
                 <small className="field-hint">
                   Choose any convenient time.
                 </small>
-
               </div>
-
             </div>
-
           </section>
         )}
 
@@ -1010,11 +961,8 @@ GroomiHub Customer`;
 
         {date && time && (
           <section className="booking-step reveal">
-
             <div className="step-heading">
-
               <div>
-
                 <span className="step-label">
                   05
                 </span>
@@ -1022,19 +970,15 @@ GroomiHub Customer`;
                 <h2>
                   Where should we come?
                 </h2>
-
               </div>
 
               <span className="selected-label">
                 YOUR DETAILS
               </span>
-
             </div>
 
             <div className="details-grid">
-
               <div className="booking-field">
-
                 <label htmlFor="customer-name">
                   YOUR NAME
                 </label>
@@ -1048,11 +992,9 @@ GroomiHub Customer`;
                     setName(e.target.value)
                   }
                 />
-
               </div>
 
               <div className="booking-field">
-
                 <label htmlFor="customer-phone">
                   PHONE NUMBER
                 </label>
@@ -1081,11 +1023,9 @@ GroomiHub Customer`;
                       10-digit number.
                     </small>
                   )}
-
               </div>
 
               <div className="booking-field full-field">
-
                 <label htmlFor="customer-address">
                   HOME ADDRESS
                 </label>
@@ -1109,11 +1049,8 @@ GroomiHub Customer`;
                       address.
                     </small>
                   )}
-
               </div>
-
             </div>
-
           </section>
         )}
 
@@ -1121,9 +1058,7 @@ GroomiHub Customer`;
 
         {selectedServices.length > 0 && (
           <div className="booking-continue reveal">
-
             <div>
-
               <span>
                 YOUR SELECTION
               </span>
@@ -1145,7 +1080,6 @@ GroomiHub Customer`;
                   {formatTime(time)}
                 </small>
               )}
-
             </div>
 
             <button
@@ -1159,10 +1093,8 @@ GroomiHub Customer`;
               Confirm booking
               <span>↗</span>
             </button>
-
           </div>
         )}
-
       </main>
     </div>
   );

@@ -2392,3 +2392,74 @@ h3 {
     font-size: 14px;
   }
 }
+/* =========================================================
+   GROOMIHUB ANNOUNCEMENT TICKER
+   ========================================================= */
+
+.announcement {
+  width: 100%;
+  height: 42px;
+  background: #111;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.announcement-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  flex-shrink: 0;
+  animation: announcementScroll 28s linear infinite;
+}
+
+.announcement-track span {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-right: 42px;
+}
+
+.announcement-track .announcement-dot {
+  padding-right: 42px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+@keyframes announcementScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Slightly slower on mobile */
+@media (max-width: 768px) {
+  .announcement {
+    height: 38px;
+  }
+
+  .announcement-track {
+    animation-duration: 22s;
+  }
+
+  .announcement-track span {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    padding-right: 28px;
+  }
+
+  .announcement-track .announcement-dot {
+    padding-right: 28px;
+  }
+}

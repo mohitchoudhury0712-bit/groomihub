@@ -64,7 +64,9 @@ const Services = () => {
 
             <div className="service-overlay" />
 
-            <span className="service-number">{service.number}</span>
+            <span className="service-number">
+              {service.number}
+            </span>
 
             <div className="service-arrow">↗</div>
 
