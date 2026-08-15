@@ -6,40 +6,9 @@ import Hero from "./components/home/Hero";
 import Services from "./components/home/Services";
 import BookingPage from "./pages/BookingPage";
 
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  name: "GroomiHub",
-  url: "https://groomihub.in/",
-  description:
-    "GroomiHub provides professional salon and grooming services at home in Kharar for men and women, including haircuts, hair styling, beard grooming, makeup, facials, skincare and nail care.",
-  areaServed: {
-    "@type": "City",
-    name: "Kharar",
-  },
-  serviceType: [
-    "Salon at Home",
-    "Haircut",
-    "Hair Styling",
-    "Beard Grooming",
-    "Makeup",
-    "Facial",
-    "Skincare",
-    "Manicure",
-    "Pedicure",
-  ],
-};
-
 function HomePage() {
   return (
     <div className="site">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(businessSchema),
-        }}
-      />
-
       <AnnouncementBar />
       <Navbar />
 
@@ -263,7 +232,7 @@ function HomePage() {
           <span>© 2026 GroomiHub. All rights reserved.</span>
           <span>Beauty. Your way.</span>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
