@@ -4,20 +4,21 @@ const Hero = () => {
       <div className="hero-copy">
         <div className="eyebrow">
           <span className="eyebrow-line"></span>
-          The new way to experience beauty
+          Salon at home in Kharar
         </div>
 
         <h1>
-          Your beauty.
+          Salon & beauty
           <br />
-          <span>Your space.</span>
+          <span>services at home.</span>
           <br />
-          Your time.
+          For men & women.
         </h1>
 
         <p className="hero-description">
-          Premium beauty and grooming services brought directly to your
-          doorstep — by professionals you can trust.
+          GroomiHub brings professional salon and grooming services directly
+          to your doorstep in Kharar. Book haircuts, beard grooming, facials,
+          nails, makeup and more — without leaving home.
         </p>
 
         <div className="hero-actions">
@@ -35,17 +36,17 @@ const Hero = () => {
         <div className="hero-points">
           <div>
             <strong>SERVICE</strong>
-            <span>At your doorstep</span>
+            <span>At your doorstep in Kharar</span>
           </div>
 
           <div>
             <strong>STANDARD</strong>
-            <span>Salon-quality care</span>
+            <span>Salon-quality care at home</span>
           </div>
 
           <div>
             <strong>PROFESSIONALS</strong>
-            <span>Verified experts</span>
+            <span>Trusted beauty experts</span>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ const Hero = () => {
       <div className="hero-visual">
         <img
           src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1400&q=90"
-          alt="Premium beauty experience"
+          alt="At-home salon and beauty service experience"
         />
 
         <div className="hero-image-tag">
@@ -62,7 +63,7 @@ const Hero = () => {
 
         <div className="hero-image-label">
           <span>GROOMIHUB EXPERIENCE</span>
-          <strong>Professional care. At home.</strong>
+          <strong>Professional beauty care. At home.</strong>
         </div>
       </div>
     </section>

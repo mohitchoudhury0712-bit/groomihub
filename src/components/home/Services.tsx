@@ -2,31 +2,35 @@ const Services = () => {
   const services = [
     {
       number: "01",
-      title: "Hair",
-      text: "Cuts, styling, blowouts, colour and everyday grooming.",
+      title: "Hair & Haircuts",
+      text: "Haircuts, styling, blowouts, colour and everyday hair grooming at home in Kharar.",
       image:
         "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1200&q=90",
+      alt: "Haircut and hair styling service at home in Kharar",
     },
     {
       number: "02",
       title: "Makeup",
-      text: "Everyday glam, party looks and makeup for your special moments.",
+      text: "Professional makeup for everyday looks, parties, events and special moments at home.",
       image:
         "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=90",
+      alt: "Professional makeup service at home in Kharar",
     },
     {
       number: "03",
-      title: "Skin",
-      text: "Facials, clean-ups, de-tan and skincare rituals designed around you.",
+      title: "Facial & Skin",
+      text: "Facials, clean-ups, de-tan and skincare treatments designed around you and delivered at home.",
       image:
         "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=90",
+      alt: "Facial and skincare service at home in Kharar",
     },
     {
       number: "04",
       title: "Nails",
-      text: "Manicure, pedicure and polished nail care at your doorstep.",
+      text: "Manicure, pedicure and polished nail care delivered conveniently to your doorstep.",
       image:
         "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=90",
+      alt: "Manicure and pedicure nail service at home in Kharar",
     },
   ];
 
@@ -40,16 +44,16 @@ const Services = () => {
           </p>
 
           <h2>
-            Made for
+            Beauty &
             <br />
-            <span>you.</span>
+            <span>grooming at home.</span>
           </h2>
         </div>
 
         <p>
-          Professional beauty services without the salon visit. Choose what
-          you need, choose your time, and let GroomiHub bring the experience
-          home.
+          GroomiHub brings professional salon and grooming services to your
+          doorstep in Kharar. Choose from haircuts, hair styling, makeup,
+          facials, skincare and nail care for men and women.
         </p>
       </div>
 
@@ -60,7 +64,7 @@ const Services = () => {
             className="service-card"
             key={service.number}
           >
-            <img src={service.image} alt={service.title} />
+            <img src={service.image} alt={service.alt} />
 
             <div className="service-overlay" />
 
